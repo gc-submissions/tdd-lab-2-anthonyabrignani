@@ -68,4 +68,13 @@ describe("ChangeHandler", function () {
     cash.insertCoin(quarter);
     expect(cash.isPaymentSufficient()).toEqual(true);
   });
+
+  test("giveChange - 32 change = quarter: 1, nickel: 1, penny: 2", function () {
+    const cash = new ChangeHandler(18);
+    cash.insertCoin(quarter);
+    cash.insertCoin(quarter);
+    expect(cash.giveChange()).toEqual().changer;
+  });
+
 });
+

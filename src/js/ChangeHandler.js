@@ -34,12 +34,29 @@ class ChangeHandler {
   }
 
   giveChange() {
-    return {
+    const changer = {
       quarters: 0,
       dimes: 0,
       nickels: 0,
       pennies: 0,
     };
+      if (this.amountDue >= 25) {
+        changer.quarters++;
+        this.amountDue - 25;
+      }
+      if (this.amountDue >= 10) {
+        changer.dimes++;
+        this.amountDue - 10;
+      }
+      if (this.amountDue >= 5) {
+        changer.nickels++;
+        this.amountDue - 5;
+      }
+      if (this.amountDue > 0) {
+        changer.pennies++;
+        this.amountDue - 1;
+      }
+    return changer;
   }
 }
 
