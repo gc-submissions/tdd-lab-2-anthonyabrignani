@@ -10,16 +10,16 @@ class ChangeHandler {
     const nickel = 5;
     const penny = 1;
     let coin = type;
-    if (coin === quarter) {
+    if (coin === "quarter") {
       this.cashTendered += quarter;
     }
-    if (coin === dime) {
+    if (coin === "dime") {
       this.cashTendered += dime;
     }
-    if (coin === nickel) {
+    if (coin === "nickel") {
       this.cashTendered += nickel;
     }
-    if (coin === penny) {
+    if (coin === "penny") {
       this.cashTendered += penny;
     }
     return this.cashTendered;
