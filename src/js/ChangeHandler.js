@@ -33,7 +33,8 @@ class ChangeHandler {
     }
   }
 
-  giveChange(change) {
+  giveChange() {
+    let change = this.cashTendered - this.amountDue;
     var changer = {
       quarters: 0,
       dimes: 0,

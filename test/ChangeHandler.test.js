@@ -70,20 +70,22 @@ describe("ChangeHandler", function () {
     cash.insertCoin("quarter");
     cash.insertCoin("quarter");
     cash.isPaymentSufficient()
-    expect(cash.giveChange(32)).toEqual({"dimes": 0, "nickels": 1, "pennies": 2, "quarters": 1});
+    expect(cash.giveChange()).toEqual({"dimes": 0, "nickels": 1, "pennies": 2, "quarters": 1});
   });
 
   test("giveChange - 10 change = dime: 1", function () {
     const cash = new ChangeHandler(15);
     cash.insertCoin("quarter");
-    expect(cash.giveChange(10)).toEqual({"dimes": 1, "nickels": 0, "pennies": 0, "quarters": 0});
+    cash.isPaymentSufficient()
+    expect(cash.giveChange()).toEqual({"dimes": 1, "nickels": 0, "pennies": 0, "quarters": 0});
   });
 
   test("giveChange - 27 change = quarter: 1, penny: 2", function () {
     const cash = new ChangeHandler(23);
     cash.insertCoin("quarter");
     cash.insertCoin("quarter");
-    expect(cash.giveChange(27)).toEqual({"dimes": 0, "nickels": 0, "pennies": 2, "quarters": 1});
+    cash.isPaymentSufficient()
+    expect(cash.giveChange()).toEqual({"dimes": 0, "nickels": 0, "pennies": 2, "quarters": 1});
   });
 
   test("giveChange - 68 change = quarter: 2, dime: 1, nickel: 1, penny: 3", function () {
@@ -91,7 +93,8 @@ describe("ChangeHandler", function () {
     cash.insertCoin("quarter");
     cash.insertCoin("quarter");
     cash.insertCoin("quarter");
-    expect(cash.giveChange(68)).toEqual({"dimes": 1, "nickels": 1, "pennies": 3, "quarters": 2});
+    cash.isPaymentSufficient()
+    expect(cash.giveChange()).toEqual({"dimes": 1, "nickels": 1, "pennies": 3, "quarters": 2});
   });
 
 });
