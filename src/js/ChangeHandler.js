@@ -33,29 +33,29 @@ class ChangeHandler {
     }
   }
 
-  giveChange() {
-    const changer = {
+  giveChange(change) {
+    var changer = {
       quarters: 0,
       dimes: 0,
       nickels: 0,
       pennies: 0,
     };
-      if (this.amountDue >= 25) {
-        changer.quarters++;
-        this.amountDue - 25;
-      }
-      if (this.amountDue >= 10) {
-        changer.dimes++;
-        this.amountDue - 10;
-      }
-      if (this.amountDue >= 5) {
-        changer.nickels++;
-        this.amountDue - 5;
-      }
-      if (this.amountDue > 0) {
-        changer.pennies++;
-        this.amountDue - 1;
-      }
+    while (change >= 25) {
+      changer.quarters++;
+      change -= 25;
+    }
+    while (change >= 10) {
+      changer.dimes++;
+      change -= 10;
+    }
+    while (change >= 5) {
+      changer.nickels++;
+      change -= 5;
+    }
+    while (change >= 1) {
+      changer.pennies++;
+      change -= 1;
+    }
     return changer;
   }
 }
